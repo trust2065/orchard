@@ -2,6 +2,7 @@ $desktop-size: 960px;
 $tablet-size: 760px;
 $mobile-size: 320px;
 $has-border: false;
+// $has-border: true;
 
 body {
   background: black;
@@ -19,6 +20,10 @@ body {
   }
   @media only screen and (max-width: $desktop-size - 1) {
     flex-direction: column;
+  }
+  &--wrap {
+    flex-wrap: wrap;
+    align-content: center;
   }
 }
 
@@ -39,6 +44,11 @@ body {
     flex-direction: column;
     align-items: center;
   }
+  &--mobile-mb-3 {
+    @media only screen and (max-width: $desktop-size) {
+      margin-bottom: 3rem;
+    }
+  }
 }
 
 .imageBox {
@@ -55,6 +65,9 @@ body {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    &--bLine {
+      border-bottom: 4px solid #cf1430;
+    }
   }
 }
 
@@ -66,18 +79,35 @@ body {
     outline: 5px solid red;
   }
   font-family: sans-serif;
+  &--fullW {
+    flex-basis: 100%;
+  }
+  &--x-center {
+    text-align: center;
+  }
   &__head {
-    text-transform: uppercase;
     font-weight: normal;
     font-size: 1.5rem;
+    &--upper {
+      text-transform: uppercase;
+    }
     &--red {
       color: red;
     }
-    &--white {
+    &--grey {
       color: #ffffffd1;
+    }
+    &--white {
+      color: white;
     }
     &--appendix {
       font-size: 1rem;
+    }
+    &--md {
+      font-size: 1.2rem;
+    }
+    &--xl {
+      font-size: 3rem;
     }
   }
   &__desc {
@@ -86,5 +116,28 @@ body {
     &--white {
       color: white;
     }
+    &--grey {
+      color: #898b8b;
+    }
+    &--sm {
+      font-size: 1rem;
+    }
+    &--maxL-3 {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      /* fallback */
+      line-height: 1.5rem;
+      max-height: calc(3 * 1.5rem);
+    }
+  }
+  &__link {
+    border-bottom: 2px solid #cf1430;
+    color: white;
+    padding-bottom: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
   }
 }
