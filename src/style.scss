@@ -60,7 +60,8 @@ body {
 
 .textBox {
   color: hsl(208, 8%, 64%);
-  margin: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
   @if $has-border {
     outline: 5px solid red;
   }
