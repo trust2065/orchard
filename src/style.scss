@@ -1,27 +1,56 @@
+$desktop-size: 960px;
+$tablet-size: 760px;
+$mobile-size: 320px;
+$has-border: false;
+
 body {
   background: black;
-  width: 100%;
 }
 
 .story {
-  margin: 2rem 7rem;
   display: flex;
-  height: 650px;
-}
-
-.content {
-  width: calc(100% / 3);
-  // outline: 5px solid green;
-  display: flex;
-  &--vertical {
+  margin: 2rem auto;
+  @if $has-border {
+    outline: 5px solid yellow;
+  }
+  max-width: calc(100vh * 16 / 9);
+  @media only screen and (min-width: $desktop-size) {
+    height: calc(100vh - 4rem);
+  }
+  @media only screen and (max-width: $desktop-size - 1) {
     flex-direction: column;
   }
 }
 
+.content {
+  display: flex;
+  flex-basis: calc(100% / 3);
+  @if $has-border {
+    outline: 5px solid green;
+  }
+  &--x-center {
+    justify-content: center;
+  }
+  // 高度50% 所以不需要了
+  // &--x-spaceAround {
+  //   justify-content: space-around;
+  // }
+  &--vertical {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .imageBox {
-  margin: 3%;
-  overflow: hidden;
-  // outline: 5px solid red;
+  // margin: 3%;
+  padding: 1rem;
+  // overflow: hidden;
+  @if $has-border {
+    outline: 8px solid red;
+  }
+  &--half {
+    height: calc(100% / 2);
+  }
   &__image {
     object-fit: cover;
     width: 100%;
@@ -32,7 +61,9 @@ body {
 .textBox {
   color: hsl(208, 8%, 64%);
   margin: 3%;
-  // outline: 5px solid red;
+  @if $has-border {
+    outline: 5px solid red;
+  }
   font-family: sans-serif;
   &__head {
     text-transform: uppercase;
@@ -43,7 +74,6 @@ body {
     }
     &--white {
       color: #ffffffd1;
-      // color: #ffffffd6;
     }
     &--appendix {
       font-size: 1rem;
