@@ -61,6 +61,9 @@ body {
   &--half {
     height: calc(100% / 2);
   }
+  &--spin {
+    animation: spin 1s 1;
+  }
   &__image {
     object-fit: cover;
     width: 100%;
@@ -84,6 +87,9 @@ body {
   }
   &--x-center {
     text-align: center;
+  }
+  &--fade {
+    animation: fade 2s 1;
   }
   &__head {
     font-weight: normal;
@@ -139,5 +145,25 @@ body {
     padding-bottom: 6px;
     text-decoration: none;
     text-transform: uppercase;
+  }
+}
+
+@keyframes fade {
+  from {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
