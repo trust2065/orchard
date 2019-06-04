@@ -1,4 +1,4 @@
-require("./style.scss");
+// require("./style.scss");
 
 new fullpage("#fullpage", {
   responsiveWidth: 960,
