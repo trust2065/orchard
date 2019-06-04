@@ -1,4 +1,5 @@
-const style = require("./style.scss");
+require("./style.scss");
+
 new fullpage("#fullpage", {
   responsiveWidth: 960,
   onLeave: function(currentPage, nextPage, direction) {
@@ -6,24 +7,20 @@ new fullpage("#fullpage", {
     const nextIndex = nextPage.index;
 
     const updateAnimation = (section, action) => {
-      const images = document
-        .querySelectorAll(`#${section} .imageBox`)
-        .forEach(function(e) {
-          if (action === "add") {
-            e.classList.add("imageBox--spin");
-          } else if (action === "remove") {
-            e.classList.remove("imageBox--spin");
-          }
-        });
-      const textBox = document
-        .querySelectorAll(`#${section} .textBox`)
-        .forEach(function(e) {
-          if (action === "add") {
-            e.classList.add("textBox--fade");
-          } else if (action === "remove") {
-            e.classList.remove("textBox--fade");
-          }
-        });
+      document.querySelectorAll(`#${section} .imageBox`).forEach(function(e) {
+        if (action === "add") {
+          e.classList.add("imageBox--spin");
+        } else if (action === "remove") {
+          e.classList.remove("imageBox--spin");
+        }
+      });
+      document.querySelectorAll(`#${section} .textBox`).forEach(function(e) {
+        if (action === "add") {
+          e.classList.add("textBox--fade");
+        } else if (action === "remove") {
+          e.classList.remove("textBox--fade");
+        }
+      });
     };
 
     if (direction === "down") {
@@ -35,3 +32,16 @@ new fullpage("#fullpage", {
     }
   }
 });
+
+(function() {
+  document.querySelectorAll(".imageBox").forEach(e => {
+    e.addEventListener("click", e => {
+      console.log(`image clicked, which is ${e.target.alt}`);
+    });
+  });
+  document.querySelectorAll(".textBox").forEach(e => {
+    e.addEventListener("click", e => {
+      console.log(`text clicked, which is ${e.target.innerHTML}`);
+    });
+  });
+})();
