@@ -34,6 +34,7 @@ new fullpage("#fullpage", {
 });
 
 (function() {
+  // console log when clicked
   document.querySelectorAll(".imageBox").forEach(e => {
     e.addEventListener("click", e => {
       console.log(`image clicked, which is ${e.target.alt}`);
@@ -44,4 +45,27 @@ new fullpage("#fullpage", {
       console.log(`text clicked, which is ${e.target.innerHTML}`);
     });
   });
+
+  // open modal when click image
+  const modal = document.querySelector("#imageModal");
+  const modalImage = document.querySelector("#imageModal img");
+  document.querySelectorAll("#section1 .imageBox__image").forEach(e => {
+    e.addEventListener("click", e => {
+      modalImage.src = e.target.src;
+      modalImage.alt = e.target.alt;
+      modal.classList.add("modal--flex");
+    });
+  });
+
+  // close modal when click X
+  document.querySelector(".modal__close").addEventListener("click", () => {
+    modal.classList.remove("modal--flex");
+  });
+
+  // close modal when click out of modal area
+  window.onclick = e => {
+    if (e.target == modal) {
+      modal.classList.remove("modal--flex");
+    }
+  };
 })();
