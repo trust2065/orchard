@@ -1,6 +1,9 @@
 using `yarn build` to minify and uglify by running production mode
 using `yarn start` to dev with hot-reload
 
+## recommand using vscode extenstion 'live server' to browse result on dev/pro environment
+
+
 ## page 1 note
 
 - story's height vh 100% minus margin
