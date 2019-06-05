@@ -3,7 +3,8 @@
   "email": "trust2065@gmail.com",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "set NODE_ENV=development&&webpack --mode=development --hot",
+    "start": "set NODE_ENV=production&&webpack --mode=development",
+    "dev": "set NODE_ENV=development&&webpack --mode=development --hot",
     "build": "set NODE_ENV=production&&webpack --mode=production"
   },
   "devDependencies": {
