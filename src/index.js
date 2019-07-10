@@ -1,6 +1,8 @@
-require("./style.scss");
+import "./style.scss";
+import fullpage from "fullpage.js";
 
 new fullpage("#fullpage", {
+  licenseKey: null,
   responsiveWidth: 960,
   onLeave: function(currentPage, nextPage, direction) {
     const index = currentPage.index;
@@ -33,39 +35,37 @@ new fullpage("#fullpage", {
   }
 });
 
-(function() {
-  // console log when clicked
-  document.querySelectorAll(".imageBox").forEach(e => {
-    e.addEventListener("click", e => {
-      console.log(`image clicked, which is ${e.target.alt}`);
-    });
+// console log when clicked
+document.querySelectorAll(".imageBox").forEach(e => {
+  e.addEventListener("click", e => {
+    console.log(`image clicked, which is ${e.target.alt}`);
   });
-  document.querySelectorAll(".textBox").forEach(e => {
-    e.addEventListener("click", e => {
-      console.log(`text clicked, which is ${e.target.innerHTML}`);
-    });
+});
+document.querySelectorAll(".textBox").forEach(e => {
+  e.addEventListener("click", e => {
+    console.log(`text clicked, which is ${e.target.innerHTML}`);
   });
+});
 
-  // open modal when click image
-  const modal = document.querySelector("#imageModal");
-  const modalImage = document.querySelector("#imageModal img");
-  document.querySelectorAll("#section1 .imageBox__image").forEach(e => {
-    e.addEventListener("click", e => {
-      modalImage.src = e.target.src;
-      modalImage.alt = e.target.alt;
-      modal.classList.add("modal--flex");
-    });
+// open modal when click image
+const modal = document.querySelector("#imageModal");
+const modalImage = document.querySelector("#imageModal img");
+document.querySelectorAll("#section1 .imageBox__image").forEach(e => {
+  e.addEventListener("click", e => {
+    modalImage.src = e.target.src;
+    modalImage.alt = e.target.alt;
+    modal.classList.add("modal--flex");
   });
+});
 
-  // close modal when click X
-  document.querySelector(".modal__close").addEventListener("click", () => {
+// close modal when click X
+document.querySelector(".modal__close").addEventListener("click", () => {
+  modal.classList.remove("modal--flex");
+});
+
+// close modal when click out of modal area
+window.onclick = e => {
+  if (e.target == modal) {
     modal.classList.remove("modal--flex");
-  });
-
-  // close modal when click out of modal area
-  window.onclick = e => {
-    if (e.target == modal) {
-      modal.classList.remove("modal--flex");
-    }
-  };
-})();
+  }
+};
