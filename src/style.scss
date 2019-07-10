@@ -1,6 +1,8 @@
-$desktop-size: 960px;
-$tablet-size: 760px;
-$mobile-size: 320px;
+$desktopLarge-size: 1300px;
+$desktop-size: 992px;
+$tablet-size: 768px;
+$mobile-size: 576px;
+$mobileSmall-size: 320px;
 $has-border: false;
 // $has-border: true;
 
@@ -8,19 +10,33 @@ body {
   background: black;
 }
 
-.story {
+.my-container {
   display: flex;
-  margin: 2rem auto;
   @if $has-border {
     outline: 5px solid yellow;
   }
-  max-width: calc(100vh * 16 / 9);
+  margin: 0rem auto;
   @media only screen and (min-width: $desktop-size) {
-    height: calc(100vh - 4rem);
+    margin: 10rem auto;
   }
   @media only screen and (max-width: $desktop-size - 1) {
     flex-direction: column;
   }
+
+  max-width: auto;
+  @media only screen and (min-width: $mobile-size) {
+    max-width: 540px;
+  }
+  @media only screen and (min-width: $tablet-size) {
+    max-width: 720px;
+  }
+  @media only screen and (min-width: $desktop-size) {
+    max-width: 960px;
+  }
+  @media only screen and (min-width: $desktopLarge-size) {
+    max-width: 1230px;
+  }
+
   &--wrap {
     flex-wrap: wrap;
     align-content: center;
@@ -29,6 +45,7 @@ body {
 
 .content {
   display: flex;
+  margin: 0.75rem;
   flex-basis: calc(100% / 3);
   @if $has-border {
     outline: 5px solid green;
@@ -36,13 +53,18 @@ body {
   &--x-center {
     justify-content: center;
   }
-  // 高度50% 所以不需要了
-  // &--x-spaceAround {
-  //   justify-content: space-around;
-  // }
   &--vertical {
     flex-direction: column;
     align-items: center;
+    & > .imageBox {
+      margin: 0.75rem;
+    }
+    & > .imageBox:first-child {
+      margin-top: 0;
+    }
+    & > .imageBox:last-child {
+      margin-bottom: 0;
+    }
   }
   &--mobile-mb-3 {
     @media only screen and (max-width: $desktop-size) {
@@ -52,12 +74,8 @@ body {
 }
 
 .imageBox {
-  padding: 1rem;
   @if $has-border {
     outline: 8px solid red;
-  }
-  &--half {
-    height: calc(100% / 2);
   }
   &--spin {
     animation: spin 1s 1;
@@ -87,12 +105,10 @@ body {
 
 .textBox {
   color: hsl(208, 8%, 64%);
-  margin-left: 3%;
-  margin-right: 3%;
+  font-family: "Open Sans";
   @if $has-border {
     outline: 5px solid red;
   }
-  font-family: sans-serif;
   &--fullW {
     flex-basis: 100%;
   }
@@ -106,41 +122,60 @@ body {
     text-decoration: none;
   }
   &__head {
-    font-weight: normal;
-    font-size: 1.5rem;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 36px;
+
     &--upper {
       text-transform: uppercase;
     }
     &--red {
-      color: red;
+      color: #cf1430;
     }
     &--grey {
-      color: #ffffffd1;
+      color: #ffffff;
     }
     &--white {
       color: white;
     }
     &--appendix {
-      font-size: 1rem;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 28px;
     }
     &--md {
-      font-size: 1.2rem;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 30px;
     }
     &--xl {
-      font-size: 3rem;
+      font-size: 42px;
+      letter-spacing: 0.81px;
+      line-height: 57px;
     }
   }
   &__desc {
-    font-size: 1.1rem;
-    line-height: 2rem;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 30px;
+    color: #ffffff;
+
+    &--heavy {
+      font-weight: 600;
+    }
     &--white {
       color: white;
     }
     &--grey {
       color: #898b8b;
     }
+    &--lightgrey {
+      color: #c2c2c2;
+    }
     &--sm {
-      font-size: 1rem;
+      font-size: 16px;
+      line-height: 28px;
     }
     &--maxL-3 {
       display: -webkit-box;
@@ -155,10 +190,12 @@ body {
   }
   &__link {
     border-bottom: 2px solid #cf1430;
-    color: white;
     padding-bottom: 6px;
     text-decoration: none;
     text-transform: uppercase;
+
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 
