@@ -1,6 +1,13 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "index_bundle.js"
+  },
   module: {
     rules: [
       {
@@ -10,8 +17,29 @@ module.exports = {
             ? "style-loader"
             : MiniCssExtractPlugin.loader,
           "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          {
+            loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+            options: {
+              sourceMap: true
+            }
+          }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {}
+          }
+        ]
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: "html-loader",
+          options: {}
+        }
       }
     ]
   },
@@ -21,7 +49,14 @@ module.exports = {
       // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css"
+    }),
+    new HtmlWebpackPlugin({
+      // generate html file without manually inject .js bundle
+      template: "index.html"
     })
   ],
-  watch: process.env.NODE_ENV !== "production" ? true : false
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true
+  }
 };
