@@ -7,7 +7,6 @@ import fullpage from "fullpage.js";
     responsiveWidth: 960,
     onLeave: function(currentPage, nextPage, direction) {
       const index = currentPage.index;
-      const nextIndex = nextPage.index;
 
       const updateAnimation = (section, action) => {
         document.querySelectorAll(`#${section} .imageBox`).forEach(function(e) {
