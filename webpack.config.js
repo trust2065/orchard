@@ -17,7 +17,12 @@ module.exports = {
           process.env.NODE_ENV !== "production"
             ? "style-loader"
             : MiniCssExtractPlugin.loader,
-          "css-loader", // translates CSS into CommonJS
+          {
+            loader: "css-loader", // translates CSS into CommonJS
+            options: {
+              sourceMap: true
+            }
+          },
           {
             loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
             options: {
