@@ -12,20 +12,53 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(scss)$/,
         use: [
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
-            : MiniCssExtractPlugin.loader,
-          "css-loader", // translates CSS into CommonJS
           {
-            loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+            loader: "style-loader" // inject CSS to page
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS modules
+          },
+          {
+            loader: "postcss-loader", // Run post css actions
             options: {
-              sourceMap: true
+              plugins: function() {
+                // post css plugins, can be exported to postcss.config.js
+                return [require("autoprefixer")];
+              }
             }
+          },
+          {
+            loader: "sass-loader" // compiles Sass to CSS
           }
         ]
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     process.env.NODE_ENV !== "production"
+      //       ? "style-loader"
+      //       : MiniCssExtractPlugin.loader,
+      //     "css-loader", // translates CSS into CommonJS
+
+      //     {
+      //       loader: "postcss-loader", // Run post css actions
+      //       options: {
+      //         plugins: function() {
+      //           // post css plugins, can be exported to postcss.config.js
+      //           return [require("precss"), require("autoprefixer")];
+      //         }
+      //       }
+      //     },
+      //     {
+      //       loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+      //       options: {
+      //         sourceMap: true
+      //       }
+      //     }
+      //   ]
+      // },
       {
         test: /\.(png|jpe?g|gif)$/,
         use: [
