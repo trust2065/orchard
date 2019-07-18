@@ -1,5 +1,16 @@
-import "./style.scss";
 import fullpage from "fullpage.js";
+import "./app.scss";
+import "./style.scss";
+import randomWords from "random-words";
+
+// debug mode
+if (window.location.href.slice(-7) === "debug=1") {
+  document.querySelectorAll(".randomText").forEach(node => {
+    node.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
+      (a, b) => `${a} ${b}`
+    );
+  });
+}
 
 new fullpage("#fullpage", {
   licenseKey: null,
@@ -63,8 +74,8 @@ document.querySelector(".modal__close").addEventListener("click", () => {
 });
 
 // close modal when click out of modal area
-window.onclick = e => {
-  if (e.target == modal) {
-    modal.classList.remove("modal--flex");
-  }
-};
+// window.onclick = e => {
+//   if (e.target == modal) {
+//     modal.classList.remove("modal--flex");
+//   }
+// };

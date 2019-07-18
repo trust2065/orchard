@@ -11,13 +11,15 @@
     "lint": "eslint src/*.js"
   },
   "devDependencies": {
+    "autoprefixer": "^9.6.1",
     "css-loader": "^2.1.1",
     "file-loader": "^4.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "path": "^0.12.7",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "*",
     "style-loader": "^0.23.1",
     "webpack": "^4.32.1",
@@ -25,8 +27,12 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "eslint": "^6.0.1",
     "fullpage.js": "^3.0.5",
-    "pre-commit": "^1.2.2"
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "pre-commit": "^1.2.2",
+    "random-words": "^1.1.0"
   }
 }

@@ -1,227 +1,62 @@
-$desktop-size: 960px;
-$tablet-size: 760px;
-$mobile-size: 320px;
-$has-border: false;
-// $has-border: true;
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  background: black;
+  font-family: "Open Sans" !important;
+}
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.bgBlack {
+  background-color: #0e1414;
+}
+.fontSize16 {
+  font-size: 16px;
+}
+.lineHeight28 {
+  line-height: 28px;
+}
+.lineHeight30 {
+  line-height: 30px;
+}
+.px07 {
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+}
+.py07 {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
 }
 
-.story {
-  display: flex;
-  margin: 2rem auto;
-  @if $has-border {
-    outline: 5px solid yellow;
-  }
-  max-width: calc(100vh * 16 / 9);
-  @media only screen and (min-width: $desktop-size) {
-    height: calc(100vh - 4rem);
-  }
-  @media only screen and (max-width: $desktop-size - 1) {
-    flex-direction: column;
-  }
-  &--wrap {
-    flex-wrap: wrap;
-    align-content: center;
-  }
+.my-15 {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
 }
 
-.content {
-  display: flex;
-  flex-basis: calc(100% / 3);
-  @if $has-border {
-    outline: 5px solid green;
-  }
-  &--x-center {
-    justify-content: center;
-  }
-  // 高度50% 所以不需要了
-  // &--x-spaceAround {
-  //   justify-content: space-around;
-  // }
-  &--vertical {
-    flex-direction: column;
-    align-items: center;
-  }
-  &--mobile-mb-3 {
-    @media only screen and (max-width: $desktop-size) {
-      margin-bottom: 3rem;
-    }
-  }
+.textSpacing_04 {
+  letter-spacing: 0.4px;
 }
 
-.imageBox {
-  padding: 1rem;
-  @if $has-border {
-    outline: 8px solid red;
-  }
-  &--half {
-    height: calc(100% / 2);
-  }
-  &--spin {
-    animation: spin 1s 1;
-  }
-  &--x-center {
-    display: flex;
-    justify-content: center;
-  }
-  &__image {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    &--bLine {
-      border-bottom: 4px solid #cf1430;
-    }
-    &--contain {
-      object-fit: contain;
-    }
-  }
+.textWhite {
+  color: #ffffff;
+}
+.textRed {
+  color: #cf1430;
+}
+.textSilver {
+  color: #c2c2c2;
+}
+.textBold {
+  font-weight: bold;
+}
+.detailBorder {
+  border-bottom: 1px solid red;
 }
 
-#section1 .imageBox {
-  &__image {
-    cursor: pointer;
-  }
-}
-
-.textBox {
-  color: hsl(208, 8%, 64%);
-  margin-left: 3%;
-  margin-right: 3%;
-  @if $has-border {
-    outline: 5px solid red;
-  }
-  font-family: sans-serif;
-  &--fullW {
-    flex-basis: 100%;
-  }
-  &--x-center {
-    text-align: center;
-  }
-  &--fade {
-    animation: fade 2s 1;
-  }
-  &--no-decoration {
-    text-decoration: none;
-  }
-  &__head {
-    font-weight: normal;
-    font-size: 1.5rem;
-    &--upper {
-      text-transform: uppercase;
-    }
-    &--red {
-      color: red;
-    }
-    &--grey {
-      color: #ffffffd1;
-    }
-    &--white {
-      color: white;
-    }
-    &--appendix {
-      font-size: 1rem;
-    }
-    &--md {
-      font-size: 1.2rem;
-    }
-    &--xl {
-      font-size: 3rem;
-    }
-  }
-  &__desc {
-    font-size: 1.1rem;
-    line-height: 2rem;
-    &--white {
-      color: white;
-    }
-    &--grey {
-      color: #898b8b;
-    }
-    &--sm {
-      font-size: 1rem;
-    }
-    &--maxL-3 {
-      display: -webkit-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      /* fallback */
-      line-height: 1.5rem;
-      max-height: calc(3 * 1.5rem);
-    }
-  }
-  &__link {
-    border-bottom: 2px solid #cf1430;
-    color: white;
-    padding-bottom: 6px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-}
-
-@keyframes fade {
-  from {
-    transform: translateY(-120px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(10deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-.modal {
-  display: none;
-  background-color: rgba(0, 0, 0, 0.4);
-  justify-content: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  z-index: 1;
-  &--flex {
-    display: flex;
-    animation: show 1s 1;
-  }
-  &__content {
-    background: #fefefe;
-    border: 1px solid #888;
-    display: flex;
-    justify-content: center;
-    margin: 5rem auto;
-    opacity: 0.95;
-    padding: 20px;
-    width: 80%;
-  }
-  &__close {
-    position: fixed;
-    top: 6rem;
-    right: 10%;
-    line-height: 2rem;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-}
-
-@keyframes show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.line-limit-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
