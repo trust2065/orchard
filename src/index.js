@@ -34,16 +34,11 @@ new fullpage("#fullpage", {
   }
 });
 
-// console log when clicked
-document.querySelectorAll(".imageBox").forEach(e => {
-  e.addEventListener("click", e => {
-    console.log(`image clicked, which is ${e.target.alt}`);
-  });
-});
-document.querySelectorAll(".textBox").forEach(e => {
-  e.addEventListener("click", e => {
-    console.log(`text clicked, which is ${e.target.innerHTML}`);
-  });
+window.addEventListener("click", e => {
+  if (e.target.localName === "a") {
+    e.preventDefault();
+    console.log("target: ", e.target);
+  }
 });
 
 // open modal when click image
