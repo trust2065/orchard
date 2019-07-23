@@ -1,6 +1,15 @@
 import fullpage from "fullpage.js";
 import "./app.scss";
 import "./style.scss";
+import randomWords from "random-words";
+
+document.querySelectorAll(".randomText").forEach(e => {
+  e.addEventListener("click", e => {
+    e.target.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
+      (a, b) => `${a} ${b}`
+    );
+  });
+});
 
 new fullpage("#fullpage", {
   licenseKey: null,
