@@ -27,27 +27,35 @@ a:hover {
   padding-bottom: 0.7rem;
 }
 
-.my-15 {
+.my15 {
   margin-top: 15rem;
   margin-bottom: 15rem;
 }
 
-.textSpacing_04 {
+.textSpacing04px {
   letter-spacing: 0.4px;
 }
 
-.textWhite {
-  color: #ffffff;
-}
-.textRed {
-  color: #cf1430;
-}
-.textSilver {
-  color: #c2c2c2;
-}
 .textBold {
   font-weight: bold;
 }
-.detailBorder {
+
+.section {
+  &Title {
+    @extend .pt-4;
+    @extend .font-weight-bold;
+    @extend .lineHeight30;
+    @extend .h6;
+  }
+  &Paragraph {
+    @extend .text-secondary;
+    @extend .pt-1;
+    @extend .lineHeight28;
+  }
+}
+
+.readMore {
+  @extend .pb-2;
+  @extend .text-uppercase;
   border-bottom: 1px solid red;
 }
