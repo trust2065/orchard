@@ -13,3 +13,11 @@ using `yarn start` to dev with hot-reload
 - small resolution(< 920px) flex direction column
 - image container's height 100% or 50%
 - image's height 100%, width 100% so that object-fit would work as expect
+
+Some of Bootstrap variable has been change in order to meet color's need
+
+```
+$body-bg: #0e1414;
+$danger: #cf1430;
+$secondary: #c2c2c2;
+```
