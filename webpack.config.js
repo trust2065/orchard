@@ -14,9 +14,7 @@ module.exports = {
       {
         test: /\.(scss)$/,
         use: [
-          {
-            loader: "style-loader" // inject CSS to page
-          },
+          MiniCssExtractPlugin.loader, // extract CSS in single file
           {
             loader: "css-loader" // translates CSS into CommonJS modules
           },
@@ -34,31 +32,6 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     process.env.NODE_ENV !== "production"
-      //       ? "style-loader"
-      //       : MiniCssExtractPlugin.loader,
-      //     "css-loader", // translates CSS into CommonJS
-
-      //     {
-      //       loader: "postcss-loader", // Run post css actions
-      //       options: {
-      //         plugins: function() {
-      //           // post css plugins, can be exported to postcss.config.js
-      //           return [require("precss"), require("autoprefixer")];
-      //         }
-      //       }
-      //     },
-      //     {
-      //       loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
-      //       options: {
-      //         sourceMap: true
-      //       }
-      //     }
-      //   ]
-      // },
       {
         test: /\.(png|jpe?g|gif)$/,
         use: [
