@@ -7,6 +7,11 @@ $has-border: false;
 body {
   background: black;
 }
+a,
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}
 
 .story {
   display: flex;

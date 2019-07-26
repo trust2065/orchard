@@ -36,7 +36,6 @@ new fullpage("#fullpage", {
 
 window.addEventListener("click", e => {
   if (e.target.localName === "a") {
-    e.preventDefault();
     console.log("target: ", e.target);
   }
 });
