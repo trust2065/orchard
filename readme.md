@@ -13,10 +13,10 @@ using `yarn start` to dev with hot-reload
 - image container's height 100% or 50%
 - image's height 100%, width 100% so that object-fit would work as expect
 
-Please note naming on custom class is different(apply camelCase) from Bootstrap's naming style(join with dash, such as `pt-3`) in purpose so that developers can realize it is customize class.
+Please note there are custom class that following Bootstrap's naming strategy.
 Ex:
-`pt-3`, it is Bootstrap naming style, which means `$space * 1`
-`pt07`, it is camelCase naming style, which is a customized class means `padding-top: 0.7rem`
+`line-height-28`, which set `line-height 28px;`
+`letter-spacing-04`, which set `letter-spacing 0.4px;`
 
 Some of Bootstrap variable has been change in order to meet color's need
 
