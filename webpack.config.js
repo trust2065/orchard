@@ -1,6 +1,7 @@
 /* eslint-disable */
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.argv[1].indexOf("webpack-dev-server") !== -1;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -14,7 +15,9 @@ module.exports = {
       {
         test: /\.(scss)$/,
         use: [
-          MiniCssExtractPlugin.loader, // extract CSS in single file
+          devMode
+            ? "style-loader" // inject CSS into html
+            : MiniCssExtractPlugin.loader, // extract CSS in single file
           "css-loader", // translates CSS into CommonJS modules
           {
             loader: "postcss-loader", // Run post css actions
