@@ -3,13 +3,16 @@ import "./app.scss";
 import "./style.scss";
 import randomWords from "random-words";
 
-document.querySelectorAll(".randomText").forEach(e => {
-  e.addEventListener("click", e => {
-    e.target.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
-      (a, b) => `${a} ${b}`
-    );
+// debug mode
+if (window.location.href.slice(-7) === "debug=1") {
+  window.addEventListener("click", e => {
+    if (e.target.classList.contains("randomText")) {
+      e.target.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
+        (a, b) => `${a} ${b}`
+      );
+    }
   });
-});
+}
 
 new fullpage("#fullpage", {
   licenseKey: null,
@@ -73,8 +76,8 @@ document.querySelector(".modal__close").addEventListener("click", () => {
 });
 
 // close modal when click out of modal area
-window.onclick = e => {
-  if (e.target == modal) {
-    modal.classList.remove("modal--flex");
-  }
-};
+// window.onclick = e => {
+//   if (e.target == modal) {
+//     modal.classList.remove("modal--flex");
+//   }
+// };
