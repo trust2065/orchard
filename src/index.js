@@ -5,12 +5,10 @@ import randomWords from "random-words";
 
 // debug mode
 if (window.location.href.slice(-7) === "debug=1") {
-  window.addEventListener("click", e => {
-    if (e.target.classList.contains("randomText")) {
-      e.target.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
-        (a, b) => `${a} ${b}`
-      );
-    }
+  document.querySelectorAll(".randomText").forEach(node => {
+    node.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
+      (a, b) => `${a} ${b}`
+    );
   });
 }
 
