@@ -41,3 +41,10 @@ a:hover {
   @extend .border-bottom;
   @extend .border-danger;
 }
+
+.line-limit-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
