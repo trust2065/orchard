@@ -1,5 +1,5 @@
-import "./style.scss";
 import fullpage from "fullpage.js";
+import "./style.scss";
 
 new fullpage("#fullpage", {
   licenseKey: null,
