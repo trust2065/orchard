@@ -3,7 +3,12 @@ $danger: #cf1430;
 $secondary: #c2c2c2;
 $spacer: 0.7rem;
 $spacers: (
-  10: (
+  9: (
+    $spacer * 9
+  ),
+  17: (
     $spacer * 21
   )
 );
+
+$enable-responsive-font-sizes: true;
