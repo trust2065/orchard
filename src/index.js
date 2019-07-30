@@ -1,5 +1,17 @@
-import "./style.scss";
 import fullpage from "fullpage.js";
+
+import "./app.scss";
+import "./style.scss";
+import randomWords from "random-words";
+
+// debug mode
+if (window.location.href.slice(-7) === "debug=1") {
+  document.querySelectorAll(".randomText").forEach(node => {
+    node.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
+      (a, b) => `${a} ${b}`
+    );
+  });
+}
 
 new fullpage("#fullpage", {
   licenseKey: null,
@@ -34,16 +46,10 @@ new fullpage("#fullpage", {
   }
 });
 
-// console log when clicked
-document.querySelectorAll(".imageBox").forEach(e => {
-  e.addEventListener("click", e => {
-    console.log(`image clicked, which is ${e.target.alt}`);
-  });
-});
-document.querySelectorAll(".textBox").forEach(e => {
-  e.addEventListener("click", e => {
-    console.log(`text clicked, which is ${e.target.innerHTML}`);
-  });
+window.addEventListener("click", e => {
+  if (e.target.localName === "a") {
+    console.log("target: ", e.target);
+  }
 });
 
 // open modal when click image
@@ -63,8 +69,8 @@ document.querySelector(".modal__close").addEventListener("click", () => {
 });
 
 // close modal when click out of modal area
-window.onclick = e => {
-  if (e.target == modal) {
-    modal.classList.remove("modal--flex");
-  }
-};
+// window.onclick = e => {
+//   if (e.target == modal) {
+//     modal.classList.remove("modal--flex");
+//   }
+// };

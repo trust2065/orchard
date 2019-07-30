@@ -1,6 +1,7 @@
 /* eslint-disable */
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.argv[1].indexOf("webpack-dev-server") !== -1;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -12,18 +13,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(scss)$/,
         use: [
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
-            : MiniCssExtractPlugin.loader,
-          "css-loader", // translates CSS into CommonJS
+          devMode
+            ? "style-loader" // inject CSS into html
+            : MiniCssExtractPlugin.loader, // extract CSS in single file
+          "css-loader", // translates CSS into CommonJS modules
           {
-            loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+            loader: "postcss-loader", // Run post css actions
             options: {
-              sourceMap: true
+              plugins: function() {
+                // post css plugins, can be exported to postcss.config.js
+                return [require("autoprefixer")];
+              }
             }
-          }
+          },
+          "sass-loader" // compiles Sass to CSS
         ]
       },
       {
