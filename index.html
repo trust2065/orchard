@@ -4,162 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="author" content="Choco Li" />
-    <meta name="description" content="2 full page demonstration" />
-    <meta name="keywords" content="orchard, healthy, food" />
-    <meta name="Resource-type" content="Document" />
     <title>Orchard</title>
-  </head>
+  <link href="main.css" rel="stylesheet"></head>
   <body>
-    <div id="fullpage">
-      <div class="section active" id="section0">
-        <section class="story">
-          <div class="content content--x-center">
-            <div class="imageBox">
-              <img
-                class="imageBox__image"
-                src="f4b4a717db71695aed74f8db0cee1fe7.png"
-                alt="a man carrying a child crossing a crop field"
-              />
-            </div>
-          </div>
-          <div class="content content--vertical">
-            <div class="imageBox imageBox--half">
-              <img
-                class="imageBox__image"
-                src="b947f98466e54760de37563cd47562f6.png"
-                alt="tomato, beet and apple in a white plate"
-              />
-            </div>
-            <div class="imageBox imageBox--half">
-              <img
-                class="imageBox__image"
-                src="1d250fd3a89c49d4c1c34aebea590845.png"
-                alt="a few fresh asparagus"
-              />
-            </div>
-          </div>
-          <article class="content content--vertical">
-            <div class="textBox">
-              <a
-                class="textBox--no-decoration"
-                href="http://0rz.tw/AaW9E"
-                target="_blank"
-              >
-                <h1
-                  class="textBox__head textBox__head--grey textBox__head--upper"
-                >
-                  Answer your body's needs!
-                </h1>
-              </a>
-              <hr />
-              <p class="textBox__desc">
-                The way ingredients are sourced affected the way we nourish our
-                bodies, Author Mark Schatzer believes our body naturally
-                develops an appetite for the foods and nutrients it needs to be
-                healthy, but that artificial flavouring are getting in the way.
-                This can be reversed by focusing on high-quality ingredients and
-                being mindful as your appetite guides you to consume according
-                to your body's needs.
-              </p>
-              <h4
-                class="textBox__head textBox__head--red textBox__head--appendix textBox__head--upper"
-              >
-                be mindful
-              </h4>
-              <p class="textBox__desc textBox__desc--white">
-                Sourcing local or organic food is a good way to start being more
-                mindful about what you're cooking and eating.
-              </p>
-            </div>
-          </article>
-        </section>
-      </div>
-      <div class="section" id="section1">
-        <section class="story story--wrap">
-          <div class="textBox textBox--fullW textBox--x-center">
-            <h1
-              class="textBox__head textBox__head--xl textBox__head--white textBox__head--upper"
-            >
-              all the latest from aeg
-            </h1>
-          </div>
-          <article class="content content--vertical content--mobile-mb-3">
-            <div class="imageBox imageBox--half">
-              <img
-                class="imageBox__image imageBox__image--bLine"
-                src="04c8be79768cbe59c84a668fc0ecb132.png"
-                alt="a few plates with shrimp and veges on each, glasses of water and fruit inside"
-              />
-            </div>
-            <div class="textBox">
-              <h2 class="textBox__head textBox__head--md textBox__head--white">
-                Summer Lunch Menu By Mark Best
-              </h2>
-              <p
-                class="textBox__desc textBox__desc--sm textBox__desc--grey textBox__desc--maxL-3"
-              >
-                AEG ambassador Mark Best's eats are guaranteed to help you make
-                the most of the warmer weather and entertaining at home.
-              </p>
-              <a class="textBox__link" href="">read more</a>
-            </div>
-          </article>
-          <article class="content content--vertical content--mobile-mb-3">
-            <div class="imageBox imageBox--half">
-              <img
-                class="imageBox__image imageBox__image--bLine"
-                src="030f393ee419b61de9e61c97edd38fd5.png"
-                alt="christmas meal, baked chicken and veges"
-              />
-            </div>
-            <div class="textBox">
-              <h2 class="textBox__head textBox__head--md textBox__head--white">
-                A Traditional Christmas Eve, Mark Best Style
-              </h2>
-              <p
-                class="textBox__desc textBox__desc--sm textBox__desc--grey textBox__desc--maxL-3"
-              >
-                One of Australia's best chefs and AEG ambassador, Mark Best,
-                shares his favourite Christmas Eve menu which is sure to impress
-                your guests.
-              </p>
-              <a class="textBox__link" href="">read more</a>
-            </div>
-          </article>
-          <article class="content content--vertical content--mobile-mb-3">
-            <div class="imageBox imageBox--half">
-              <img
-                class="imageBox__image imageBox__image--bLine"
-                src="c85903e6224a3648c2658b2b87926fd8.png"
-                alt="salad in a bowl and parsley on the side"
-              />
-            </div>
-            <div class="textBox">
-              <h2 class="textBox__head textBox__head--md textBox__head--white">
-                Taking Taste Further
-              </h2>
-              <p
-                class="textBox__desc textBox__desc--sm textBox__desc--grey textBox__desc--maxL-3"
-              >
-                This exclusive cookbook gives you all the know-how you need.
-                We've designed it to make sure you get the most out of our
-                products - and the best out of your food.
-              </p>
-              <a class="textBox__link" href="">read more</a>
-            </div>
-          </article>
-        </section>
-      </div>
-    </div>
-
-    <div class="modal" id="imageModal">
-      <div class="modal__content">
-        <div class="modal__close">X</div>
-        <div class="imageBox">
-          <img class="imageBox__image imageBox__image--contain" />
+    <div class="container">
+      <section class="row my-10 align-items-center">
+        <div class="px-3 col-lg-4 col-md-6">
+          <img src="f4b4a717db71695aed74f8db0cee1fe7.png" alt="crossField" class="mw-100" />
         </div>
-      </div>
+        <div class="px-3 col-lg-4 col-md-6 d-flex flex-column">
+          <img src="b947f98466e54760de37563cd47562f6.png" alt="fruit" class="mw-100 py-3" />
+          <img src="1d250fd3a89c49d4c1c34aebea590845.png" alt="asparagus" class="mw-100 py-3" />
+        </div>
+        <article class="px-3 col-lg-4 col-md-12 text-white align-self-start">
+          <h1 class="h4 border-bottom py-3 letter-spacing-04 text-uppercase">
+            ANSWER YOUR BODY'S NEEDS
+          </h1>
+          <p class="py-4 line-height-28">
+            The way ingredients are sourced affects the way we nourish our
+            bodies. Author Mark Schatzer believes our body naturally devolops an
+            appetite for the foods and nutrients it needs to be healthy, but
+            that artificial flavourings are getting in the way. This can be
+            reversed by focusing on high-quality ingredients and being mindful
+            as your appetite guides you to consume according to your body's
+            needs.
+          </p>
+          <h2 class="h6 text-danger font-weight-bold text-uppercase">BE MINDFUL</h6>
+          <p class="font-weight-bold line-height-30 pt-2">
+            Sourcing local or organic food is a good way to start being more
+            mindful about what you're cooking and eating.
+          </p>
+        </article>
+      </section>
+      <section class="text-white my15">
+        <div class="row justify-content-center">
+          <h1 class="text-center text-uppercase">ALL THE LATEST FROM AEG</h1>
+        </div>
+        <div class="row pt-5">
+          <div class="col-md-4">
+            <img class="mw-100" src="04c8be79768cbe59c84a668fc0ecb132.png" alt="summerLunch" />
+
+            <h2 class="sectionTitle">
+              Summer Lunch Menu By Mark Best
+            </h6>
+            <p class="sectionParagraph">
+              AEG ambassador Mark Best’s summer eats are guaranteed to help you
+              make the most of the warmer weather and entertaining at home.
+            </p>
+            <div class="pt-3 pb-5">
+              <a class="readMore" href="">READ MORE</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img
+              class="mw-100"
+              src="030f393ee419b61de9e61c97edd38fd5.png"
+              alt="christmasMeal"
+            />
+            <h2 class="sectionTitle">
+              A Traditional Christmas Eve, Mark Best Style
+            </h6>
+            <p class="sectionParagraph">
+              One of Australia's best chefs and AEG ambassador, Mark Best,
+              shares his favourite Christmas Eve menu which is sure to impress
+              your guests.
+            </p>
+            <div class="pt-3 pb-5">
+              <a class="readMore" href="">READ MORE</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img class="mw-100" src="c85903e6224a3648c2658b2b87926fd8.png" alt="salad" />
+            <h2 class="sectionTitle">Taking Taste Further</h6>
+            <p class="sectionParagraph">
+              This exclusive cookbook gives you all the know‑how you need. We’ve
+              designed it to make sure you get the most out of our products –
+              and the best out of your food.
+            </p>
+            <div class="pt-3 pb-5">
+              <a class="readMore" href="">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  <script type="text/javascript" src="main.8ec679c22a188449dcfd.js"></script></body>
+  <script type="text/javascript" src="main.490c9e9fb7b7162251c6.js"></script></body>
 </html>
