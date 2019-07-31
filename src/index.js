@@ -1,6 +1,4 @@
 import fullpage from "fullpage.js";
-
-import "./app.scss";
 import "./style.scss";
 import randomWords from "random-words";
 
