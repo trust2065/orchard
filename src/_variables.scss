@@ -3,11 +3,17 @@ $danger: #cf1430;
 $secondary: #c2c2c2;
 $spacer: 0.7rem;
 $spacers: (
+  6: (
+    $spacer * 6
+  ),
   9: (
     $spacer * 9
   ),
   16: (
     $spacer * 16.5
+  ),
+  20: (
+    $spacer * 20
   )
 );
 
