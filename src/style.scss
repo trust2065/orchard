@@ -21,6 +21,13 @@ a:hover {
   letter-spacing: 0.4px;
 }
 
+.line-limit-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .section {
   &Title {
     @extend .pt-4;
@@ -32,6 +39,7 @@ a:hover {
     @extend .text-secondary;
     @extend .pt-1;
     @extend .line-height-28;
+    @extend .line-limit-5;
   }
 }
 
@@ -40,11 +48,4 @@ a:hover {
   @extend .text-uppercase;
   @extend .border-bottom;
   @extend .border-danger;
-}
-
-.line-limit-5 {
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
