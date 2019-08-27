@@ -43,6 +43,7 @@ a:hover {
     @extend .border-danger;
     @extend .border-bottom;
     @extend .border-width-2;
+    @extend .mw-100;
   }
   &Title {
     @extend .pt-5;
