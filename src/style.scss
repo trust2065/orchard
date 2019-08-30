@@ -38,6 +38,13 @@ a:hover {
   border-bottom-width: 2px !important;
 }
 
+.line-limit-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .section {
   &Image {
     @extend .border-danger;
@@ -71,11 +78,4 @@ a:hover {
     @extend .border-danger;
     @extend .font-weight-semibold;
   }
-}
-
-.line-limit-5 {
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }

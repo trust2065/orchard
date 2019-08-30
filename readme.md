@@ -28,4 +28,4 @@ $secondary: #c2c2c2;
 
 ## Accept various text length
 
-To prove it, add `?debug=1` in the end of url (such as http://localhost:8080/?debug=1), then click on text to see result.
+To prove it, add `?debug=1` in the end of url (such as https://choco-orchard.netlify.com/?debug=1), then click on text to see result.

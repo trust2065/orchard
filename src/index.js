@@ -1,11 +1,9 @@
 import fullpage from "fullpage.js";
-
-import "./app.scss";
 import "./style.scss";
 import randomWords from "random-words";
 
 // debug mode
-if (window.location.href.slice(-7) === "debug=1") {
+if (window.location.href.includes("debug=1")) {
   document.querySelectorAll(".randomText").forEach(node => {
     node.innerHTML = randomWords({ min: 3, max: 100 }).reduce(
       (a, b) => `${a} ${b}`
