@@ -47,6 +47,7 @@ a:hover {
 
 .section {
   &Image {
+    cursor: pointer;
     @extend .border-danger;
     @extend .border-bottom;
     @extend .border-width-2;
