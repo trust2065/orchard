@@ -80,3 +80,14 @@ a:hover {
     @extend .font-weight-semibold;
   }
 }
+.modal-loadingIndicator {
+  animation: spin 2s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

@@ -3,10 +3,10 @@ import "bootstrap";
 import $ from "jquery";
 import randomWords from "random-words";
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
+import { faTimes, faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 // fontawesome icon
-library.add(faTimes);
+library.add(faTimes, faCircleNotch);
 dom.watch();
 
 // debug mode
@@ -22,14 +22,28 @@ window.addEventListener("click", e => {
   if (e.target.localName === "a") {
     console.log("target: ", e.target);
   }
-  // modal
+  // toggle modal
   if (
     e.target.localName === "img" &&
     e.target.classList.contains("sectionImage")
   ) {
+    const modalBody = document.querySelector("#imgModal .modal-body");
+    modalBody.style.minHeight = `${e.target.height}px`;
+
     const modalImage = document.querySelector("#imgModal .modal-body img");
-    modalImage.src = e.target.src;
-    modalImage.alt = e.target.alt;
+    document.querySelector(".modal-loadingIndicator").style.display = "block";
+    modalImage && modalBody.removeChild(modalImage);
+
+    const newImg = new Image();
+    newImg.classList.add("mw-100");
+
+    newImg.onload = function() {
+      document.querySelector(".modal-loadingIndicator").style.display = "none";
+      modalBody.appendChild(newImg);
+    };
+
+    newImg.src = e.target.src;
+    newImg.alt = e.target.alt;
     $("#imgModal").modal();
   }
 });
