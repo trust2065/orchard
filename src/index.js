@@ -28,14 +28,24 @@ window.addEventListener("click", e => {
     e.target.classList.contains("sectionImage")
   ) {
     const modalBody = document.querySelector("#imgModal .modal-body");
-    modalBody.style.minHeight = `${e.target.height}px`;
+    const modalDialog = document.querySelector("#imgModal .modal-dialog");
+    const modalDialogMaxWidth = parseInt(
+      window.getComputedStyle(modalDialog).maxWidth
+    );
+
+    // 50 is: padding 1.5rem and 1px boarder on each side
+    const modalBodyMaxWidth = (modalDialogMaxWidth || screen.width) - 50;
+
+    modalBody.style.minHeight = `${modalBodyMaxWidth *
+      (e.target.height / e.target.width)}px`;
+    modalBody.style.minWidth = `${modalBodyMaxWidth}px`;
 
     const modalImage = document.querySelector("#imgModal .modal-body img");
     document.querySelector(".modal-loadingIndicator").style.display = "block";
     modalImage && modalBody.removeChild(modalImage);
 
     const newImg = new Image();
-    newImg.classList.add("mw-100");
+    newImg.classList.add("mw-100", "h-auto");
 
     newImg.onload = function() {
       document.querySelector(".modal-loadingIndicator").style.display = "none";
