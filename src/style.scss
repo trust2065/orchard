@@ -47,10 +47,12 @@ a:hover {
 
 .section {
   &Image {
+    cursor: pointer;
     @extend .border-danger;
     @extend .border-bottom;
     @extend .border-width-2;
     @extend .mw-100;
+    @extend .hoverEnlarge;
   }
   &Title {
     @extend .pt-5;
@@ -72,18 +74,23 @@ a:hover {
   @extend .pb-lg-0;
 
   &Link {
-    @extend .pb-2;
+    @extend .p-2;
     @extend .text-uppercase;
     @extend .border-bottom;
     @extend .border-danger;
     @extend .font-weight-semibold;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: inset 100px 0 0 0 rgba(255, 255, 255, 0.2);
+    }
   }
 }
 
 .hoverEnlarge {
-  display: block;
-  transition: transform 0.1s;
+  display: inline-block;
+  transition: transform 0.1s, opacity 0.3s;
   &:hover {
     transform: scale(1.01);
+    opacity: 0.8;
   }
 }
