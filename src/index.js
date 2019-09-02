@@ -27,8 +27,9 @@ window.addEventListener("click", e => {
     e.target.localName === "img" &&
     e.target.classList.contains("sectionImage")
   ) {
-    document.querySelector("#imgModal .modal-body img").src = e.target.src;
-    document.querySelector("#imgModal .modal-body img").alt = e.target.alt;
+    const modalImage = document.querySelector("#imgModal .modal-body img");
+    modalImage.src = e.target.src;
+    modalImage.alt = e.target.alt;
     $("#imgModal").modal();
   }
 });
