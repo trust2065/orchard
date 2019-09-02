@@ -36,9 +36,13 @@
   display: flex;
   height: 100vh;
   margin-top: 0;
+  margin-bottom: 0;
+}
+.modal-body {
+  padding: 0;
 }
 .modal-content {
   background: black;
   border: 1px solid #dee2e6;
-  padding: 3rem;
+  padding: 1.5rem;
 }

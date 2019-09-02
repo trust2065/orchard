@@ -1,5 +1,13 @@
 import "./style.scss";
+import "bootstrap";
+import $ from "jquery";
 import randomWords from "random-words";
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
+
+// fontawesome icon
+library.add(faTimes);
+dom.watch();
 
 // debug mode
 if (window.location.href.includes("debug=1")) {
@@ -19,36 +27,8 @@ window.addEventListener("click", e => {
     e.target.localName === "img" &&
     e.target.classList.contains("sectionImage")
   ) {
-    document.querySelector("#imgModal .modal-body").src = e.target.src;
-    document.querySelector("#imgModal .modal-body").alt = e.target.alt;
-    document.querySelector("#imgModal").style.display = "block";
-  } else if (e.target.getAttribute("data-dismiss")) {
-    document.querySelector(
-      `#${e.target.getAttribute("data-dismiss")}`
-    ).style.display = "none";
+    document.querySelector("#imgModal .modal-body img").src = e.target.src;
+    document.querySelector("#imgModal .modal-body img").alt = e.target.alt;
+    $("#imgModal").modal();
   }
 });
-
-// open modal when click image
-
-// const modal = document.querySelector("#imageModal");
-// const modalImage = document.querySelector("#imageModal img");
-// document.querySelectorAll("#section1 .imageBox__image").forEach(e => {
-//   e.addEventListener("click", e => {
-//     modalImage.src = e.target.src;
-//     modalImage.alt = e.target.alt;
-//     modal.classList.add("modal--flex");
-//   });
-// });
-
-// close modal when click X
-// document.querySelector(".modal__close").addEventListener("click", () => {
-//   modal.classList.remove("modal--flex");
-// });
-
-// close modal when click out of modal area
-// window.onclick = e => {
-//   if (e.target == modal) {
-//     modal.classList.remove("modal--flex");
-//   }
-// };
