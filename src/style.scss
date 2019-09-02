@@ -47,10 +47,15 @@ a:hover {
 
 .section {
   &Image {
+    cursor: pointer;
     @extend .border-danger;
     @extend .border-bottom;
     @extend .border-width-2;
     @extend .mw-100;
+    transition: transform 0.1s;
+    &:hover {
+      transform: scale(1.02);
+    }
   }
   &Title {
     @extend .pt-5;
