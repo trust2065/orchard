@@ -16,9 +16,20 @@ module.exports = {
         test: /\.(scss)$/,
         use: [
           devMode
-            ? "style-loader" // inject CSS into html
+            ? {
+                loader: "style-loader", // inject CSS into html
+                options: {
+                  sourceMap: true
+                }
+              }
             : MiniCssExtractPlugin.loader, // extract CSS in single file
-          "css-loader", // translates CSS into CommonJS modules
+          {
+            loader: "css-loader", // translates CSS into CommonJS modules
+            options: {
+              sourceMap: true
+            }
+          },
+
           {
             loader: "postcss-loader", // Run post css actions
             options: {
@@ -28,7 +39,12 @@ module.exports = {
               }
             }
           },
-          "sass-loader" // compiles Sass to CSS
+          {
+            loader: "sass-loader", // compiles Sass to CSS
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       },
       {

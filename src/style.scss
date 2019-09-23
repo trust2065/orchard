@@ -45,6 +45,13 @@ a:hover {
   overflow: hidden;
 }
 
+.line-limit-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .section {
   &Image {
     cursor: pointer;
@@ -85,7 +92,6 @@ a:hover {
     }
   }
 }
-
 .hoverEnlarge {
   display: inline-block;
   transition: transform 0.1s, opacity 0.3s;
